@@ -16,6 +16,11 @@ class FormaPagoController extends Controller
             $formaPago = FormaPago::all();
             //convirtiendo a arreglo
             $response = $formaPago->toArray();
+            $i=0;
+            foreach($formaPago as $forma){
+                $response[$i]['user'] = $forma->user->toArray();
+                $i++;
+            }
             //$response[0]['user'] = $formaPago['usuario_id'];
             return $response;
             //dd($response);
@@ -44,7 +49,7 @@ class FormaPagoController extends Controller
             $formaPago->codigo = $request->codigo;
             $formaPago->fecha_vencimiento = $request->fechaVencimiento;
             $formaPago->tipo_pago = $request->tipoPago;
-            $formaPago->usuario_id = $request->usuario['id'];
+            $formaPago->user_id = $request->usuario['id'];
             if ($formaPago->save() >= 1) {
                 return response()->json(['status' => 'ok', 'data' => $formaPago, 201]);
             } else {
@@ -64,6 +69,7 @@ class FormaPagoController extends Controller
             $formaPago = FormaPago::findOrFail($id);
             $response = $formaPago->toArray();
             // $response[0]['usuario'] = $formaPago->usuario->toArray();
+            $response[0]['user'] = $formaPago->user->toArray();
             return $response;
         } catch (\Exception $e) {
             $e->getMessage();

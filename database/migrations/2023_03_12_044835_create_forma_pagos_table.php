@@ -18,8 +18,8 @@ return new class extends Migration
             $table->string('codigo', 3)->unique();
             $table->date('fecha_vencimiento');
             $table->string('tipo_pago', 2);
-            $table->unsignedBigInteger('usuario_id');
-            $table->foreign('usuario_id')->references('id')->on('users');
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
