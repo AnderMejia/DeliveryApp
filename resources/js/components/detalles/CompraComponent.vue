@@ -89,7 +89,7 @@ export default {
         total() {
             var totalCompra = 0;
             this.compraForm.detalleCompra.forEach(element => {
-                totalCompra += (element.producto.precio +  this.productos.precio)
+                totalCompra += parseFloat(element.producto.precio, 2)
             })
             this.compraForm.precio = totalCompra;
             return totalCompra;
