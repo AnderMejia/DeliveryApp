@@ -1,13 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'DeliveryApp')
+@section('title', 'Repartidor')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Repartidor</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div id="app">
+        <repartidor-component></repartidor-component>
+    </div>
 @stop
 
 @section('css')

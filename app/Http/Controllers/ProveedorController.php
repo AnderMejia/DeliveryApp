@@ -25,7 +25,7 @@ class ProveedorController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.proveedores');
     }
 
     /**

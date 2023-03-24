@@ -13,16 +13,10 @@ class Compra extends Model
     public function repartidor(){
         return $this->belongsTo(Repartidor::class);
     }
-
-    public function proveedor(){
-        return $this->belongsTo(Proveedor::class);
-    }
-
-    public function producto(){
-        return $this->belongsTo(Producto::class);
-    }
-
-    public function usuario(){
+    public function detalle_compras(){
+        return $this->hasMany(DetalleCompra::class);
+    }    
+    public function user(){
         return $this->belongsTo(User::class);
     }
 

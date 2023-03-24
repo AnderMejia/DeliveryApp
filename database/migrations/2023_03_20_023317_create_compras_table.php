@@ -17,14 +17,10 @@ return new class extends Migration
             $table->foreign('user_id')->references('id')->on('users');
             $table->unsignedBigInteger('pago_id');
             $table->foreign('pago_id')->references('id')->on('forma_pagos');
-            $table->string('descripcion', 300);
-            $table->unsignedBigInteger('producto_id');
-            $table->foreign('producto_id')->references('id')->on('productos');
+            $table->string('descripcion', 300)->nullable();
             $table->unsignedBigInteger('repartidor_id');
             $table->foreign('repartidor_id')->references('id')->on('repartidores');
-            $table->unsignedBigInteger('proveedor_id');
-            $table->foreign('proveedor_id')->references('id')->on('proveedores');
-            $table->decimal('total', 5,2);
+            $table->decimal('total', 5,2)->nullable();
             $table->timestamps();
         });
     }

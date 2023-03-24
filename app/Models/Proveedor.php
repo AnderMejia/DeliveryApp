@@ -11,8 +11,8 @@ class Proveedor extends Model
 
     protected $table = 'proveedores';
 
-    public function compras(){
-        return $this->hasMany(Compra::class);
+    public function productos(){
+        return $this->hasMany(Producto::class);
     }
 
 }

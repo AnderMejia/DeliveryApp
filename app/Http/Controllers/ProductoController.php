@@ -13,8 +13,14 @@ class ProductoController extends Controller
     public function index()
     {
         try {
-            $producto = Producto::all();
-            return $producto;
+            $productos = Producto::all();
+            $response = $productos->toArray();
+            $i = 0;
+            foreach ($productos as $producto) {
+                $response[$i]['proveedor'] = $producto->proveedor->toArray();
+                $i++;
+            }
+            return $response;
         } catch (\Exception $e) {
             return $e->getMessage();
         }
@@ -26,6 +32,7 @@ class ProductoController extends Controller
     public function create()
     {
         //
+        return view('admin.productos');
     }
 
     /**
@@ -38,6 +45,7 @@ class ProductoController extends Controller
             $producto->nombre = $request->nombre;
             $producto->descripcion = $request->descripcion;
             $producto->precio = $request->precio;
+            $producto->proveedor_id = $request->proveedor['id'];
             if ($producto->save() >= 1) {
                 return response()->json(['status' => 'ok', 'data' => $producto, 201]);
             } else {
@@ -55,7 +63,9 @@ class ProductoController extends Controller
     {
         try {
             $producto = Producto::findOrFail($id);
-            return $producto;
+            $response = $producto->toArray();
+            $response[0]['proveedor'] = $producto->proveedor->toArray();
+            return $response;
         } catch (\Exception $e) {
             $e->getMessage();
         }
@@ -79,6 +89,7 @@ class ProductoController extends Controller
             $producto->nombre = $request->nombre;
             $producto->descripcion = $request->descripcion;
             $producto->precio = $request->precio;
+            $producto->proveedor_id = $request->proveedor['id'];
             if ($producto->update() >= 1) {
                 return response()->json(['status' => 'ok', 'data' => $producto, 201]);
             } else {

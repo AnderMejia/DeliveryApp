@@ -1,13 +1,15 @@
 @extends('adminlte::page')
 
-@section('title', 'DeliveryApp')
+@section('title', 'Formas Pago')
 
 @section('content_header')
-    <h1>Dashboard</h1>
+    <h1>Formas Pago</h1>
 @stop
 
 @section('content')
-    <p>Welcome to this beautiful admin panel.</p>
+    <div id="app">
+        <pago-component></pago-component>
+    </div>
 @stop
 
 @section('css')

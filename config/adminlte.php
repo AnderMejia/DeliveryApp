@@ -326,35 +326,28 @@ return [
                 //d-flex justify-content-end
                 [
                     'text' => 'Repartidor',
-                    'url'  => '#',
+                    'route'  => 'repartidores.create',
                     'icon' => 'fas fa-motorcycle'
                 ],
                 [
-                    'text'    => '2',
-                    'url'     => '#',
+                    'text'    => 'Proveedor',
+                    'route'     => 'proveedores.create',
+                    'icon' => 'fas fa-truck'
                     
                 ],
                 [
-                    'text' => '3',
-                    'url'  => '#',
+                    'text' => 'Producto',
+                    'route'  => 'productos.create',
+                    'icon' => 'fas fa-utensils'
+
                 ],
             ],
         ],
-        ['header' => 'labels'],
+        ['header' => 'Compra'],
         [
-            'text'       => 'important',
-            'icon_color' => 'red',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'warning',
-            'icon_color' => 'yellow',
-            'url'        => '#',
-        ],
-        [
-            'text'       => 'information',
-            'icon_color' => 'cyan',
-            'url'        => '#',
+            'text'       => 'Compras',
+            'route'        => 'pagos.create',
+            'icon' => 'fas fa-shop',
         ],
     ],
 

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('num_tajeta', 40)->unique();
             $table->string('nombre_tajeta', 30);
-            $table->string('codigo', 3)->unique();
+            $table->string('codigo', 3);
             $table->date('fecha_vencimiento');
             $table->string('tipo_pago', 2);
             $table->unsignedBigInteger('user_id');

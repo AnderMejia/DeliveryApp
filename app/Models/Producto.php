@@ -12,4 +12,7 @@ class Producto extends Model
     public function compras(){
         return $this->hasMany(Compra::class);
     }
+    public function proveedor(){
+        return $this->belongsTo(Proveedor::class);
+    }
 }
